@@ -3,7 +3,11 @@
 class ControllerExtensionModuleJslider extends Controller
 {
     private $error = array();
-
+/*
+ * https://code.tutsplus.com/tutorials/from-beginner-to-advanced-in-opencart-module-development--cms-21873
+ * https://webformyself.com/category/cms-2/opencart-cms-2/
+ * https://forum.opencart-russia.ru/threads/rukovodstvo-razrabotchika.6107/#post-44778
+ */
     public function index()
     {
 
@@ -85,6 +89,14 @@ class ControllerExtensionModuleJslider extends Controller
             $data['name'] = $module_info['name'];
         } else {
             $data['name'] = '';
+        }
+
+        if (isset($this->request->post['display-name'])) {
+            $data['display-name'] = $this->request->post['display-name'];
+        } elseif (!empty($module_info)) {
+            $data['display-name'] = $module_info['display-name'];
+        } else {
+            $data['display-name'] = '';
         }
 
         if (isset($this->request->post['status'])) {

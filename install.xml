@@ -1,26 +1,12 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <modification>
     <name>JSlider</name>
     <code>jslider#2153216</code>
-    <version>0.08c</version>
+    <version>0.09.02</version>
     <author>JackBB</author>
     <link>web.net.by</link>
 </modification>
 <!--
 TODO: подключение стилей
 TODO: настройки: автопроигрывание, варианты смены кадров https://splidejs.com/transition/
-=======
-<?xml version="1.0" encoding="utf-8"?>
-<modification>
-    <name>JSlider</name>
-    <code>jslider#2153216</code>
-    <version>0.08c</version>
-    <author>JackBB</author>
-    <link>web.net.by</link>
-</modification>
-<!--
-TODO: подключение стилей
-TODO: настройки: автопроигрывание, варианты смены кадров https://splidejs.com/transition/
->>>>>>> 75ed8e8929bff7a200f7ae8fb9fdbb512b7a747c
 -->
