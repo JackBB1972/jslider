@@ -91,12 +91,12 @@ class ControllerExtensionModuleJslider extends Controller
             $data['name'] = '';
         }
 
-        if (isset($this->request->post['display-name'])) {
-            $data['display-name'] = $this->request->post['display-name'];
+        if (isset($this->request->post['display_title'])) {
+            $data['display_title'] = $this->request->post['display_title'];
         } elseif (!empty($module_info)) {
-            $data['display-name'] = $module_info['display-name'];
+            $data['display_title'] = $module_info['display_title'];
         } else {
-            $data['display-name'] = '';
+            $data['display_title'] = '';
         }
 
         if (isset($this->request->post['status'])) {
