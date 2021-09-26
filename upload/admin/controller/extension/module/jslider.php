@@ -90,6 +90,7 @@ class ControllerExtensionModuleJslider extends Controller
         } else {
             $data['name'] = '';
         }
+        $data['name'] = htmlspecialchars($data['name']);
 
         if (isset($this->request->post['display_title'])) {
             $data['display_title'] = $this->request->post['display_title'];
@@ -98,6 +99,23 @@ class ControllerExtensionModuleJslider extends Controller
         } else {
             $data['display_title'] = '';
         }
+
+        if (isset($this->request->post['add_span'])) {
+            $data['add_span'] = $this->request->post['add_span'];
+        } elseif (!empty($module_info)) {
+            $data['add_span'] = $module_info['add_span'];
+        } else {
+            $data['add_span'] = '';
+        }
+
+        if (isset($this->request->post['hclass'])) {
+            $data['hclass'] = $this->request->post['hclass'];
+        } elseif (!empty($module_info)) {
+            $data['hclass'] = $module_info['hclass'];
+        } else {
+            $data['hclass'] = '';
+        }
+        $data['hclass'] = htmlspecialchars($data['hclass']);
 
         if (isset($this->request->post['status'])) {
             $data['status'] = $this->request->post['status'];

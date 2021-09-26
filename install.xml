@@ -2,11 +2,17 @@
 <modification>
     <name>JSlider</name>
     <code>jslider#2153216</code>
-    <version>0.10.01</version>
+    <version>0.11.07</version>
     <author>JackBB</author>
     <link>web.net.by</link>
 </modification>
 <!--
 TODO: подключение стилей
-TODO: настройки: автопроигрывание, варианты смены кадров https://splidejs.com/transition/
+TODO: https://bxslider.com/options/
+TODO    - mode = 'horizontal', 'vertical', 'fade'
+TODO    - speed = integer (def.500)
+TODO    - slideMargin = integer ???
+TODO    - slideSelector = jQuery selector (take default?)
+TODO    - controls = boolean (If true, "Next" / "Prev" controls will be added)
+TODO    - pager = boolean (If true, a pager will be added)
 -->

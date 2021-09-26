@@ -61,6 +61,32 @@
                     </div>
 
                     <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-display-title">{{ entry_addspan }}</label>
+                        <div class="col-sm-10">
+                            <select name="add_span" id="input-add-span" class="form-control">
+                                {% if add_span %}
+                                    <option value="1" selected="selected">{{ text_enabled }}</option>
+                                    <option value="0">{{ text_disabled }}</option>
+                                {% else %}
+                                    <option value="1">{{ text_enabled }}</option>
+                                    <option value="0" selected="selected">{{ text_disabled }}</option>
+                                {% endif %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-hclass">{{ entry_header_class }}</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="hclass" value="{{ hclass }}" placeholder="{{ entry_header_class }}"
+                                   id="input-hclass" class="form-control"/>
+                            {% if error_name %}
+                                <div class="text-danger">{{ error_name }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
                         <div class="col-sm-10">
                             <select name="status" id="input-status" class="form-control">

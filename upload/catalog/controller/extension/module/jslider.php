@@ -8,7 +8,6 @@ class ControllerExtensionModuleJslider extends Controller {
 
         $this->load->model('design/banner');
         $this->load->model('tool/image');
-        $this->load->model('extension/module/jslider');
 
 //        $this->document->addStyle('catalog/view/javascript/jquery/swiper/css/swiper.min.css');
 //        $this->document->addStyle('catalog/view/javascript/jquery/swiper/css/opencart.css');
@@ -29,15 +28,13 @@ class ControllerExtensionModuleJslider extends Controller {
             }
         }
 
-        $result =  $this->model_extension_module_jslider->LoadSettings();
-        $data['status ='] = $result['status'];
-        $data['display_title'] = $result['display_title'];
+        $data['display_title'] = $setting['display_title'];
+        $data['add_span'] = $setting['add_span'];
+        $data['hclass'] = $setting['hclass'];
 
         $data['module'] = $module++;
 
-echo "<pre>";
-var_dump($data);
-echo "</pre>";
+        $conf = $this->config->get('module_jslider');
 
         return $this->load->view('extension/module/jslider', $data);
 	}}

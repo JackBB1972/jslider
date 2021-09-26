@@ -14,6 +14,8 @@ $_['entry_display_title']   = 'Отображать заголовок?';
 $_['entry_description']     = 'Текст';
 $_['entry_status']          = 'Статус';
 $_['entry_banner']          = 'Выберете группу банеров';
+$_['entry_addspan']         = 'Обернуть содержимое заголовка в span';
+$_['entry_header_class']     = 'CSS класс заголовка';
 
 // Error
 $_['error_permission']      = 'У Вас нет прав для управления данным модулем!';
