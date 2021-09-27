@@ -2,11 +2,11 @@
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 
 <div>
-    {% if heading_title and display_title %}
+    {% if name and display_title %}
         {% if add_span %}
-            <h2 class="{{ hclass }}"><span>{{ heading_title }}</span></h2>
+            <h3 class="{{ hclass }}"><span>{{ name }}</span></h3>
         {% else %}
-            <h2>{{ heading_title }}</h2>
+            <h3>{{ name }}</h3>
         {% endif %}
     {% endif %}
 

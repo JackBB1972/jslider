@@ -31,6 +31,7 @@ class ControllerExtensionModuleJslider extends Controller {
         $data['display_title'] = $setting['display_title'];
         $data['add_span'] = $setting['add_span'];
         $data['hclass'] = $setting['hclass'];
+        $data['name'] = $setting['name'];
 
         $data['module'] = $module++;
 
