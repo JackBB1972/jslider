@@ -1,28 +1,30 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<div class="module">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 
-<div>
-    {% if name and display_title %}
-        {% if add_span %}
-            <h3 class="{{ hclass }}"><span>{{ name }}</span></h3>
-        {% else %}
-            <h3>{{ name }}</h3>
+    <div>
+        {% if name and display_title %}
+            {% if add_span %}
+                <h3 class="{{ hclass }}"><span>{{ name }}</span></h3>
+            {% else %}
+                <h3>{{ name }}</h3>
+            {% endif %}
         {% endif %}
-    {% endif %}
 
 
-    <div class="slider">
-        {% for banner in banners %}
-            <div><img src="{{ banner.image }}"></div>
-        {% endfor %}
+        <div class="slider">
+            {% for banner in banners %}
+                <div><img src="{{ banner.image }}"></div>
+            {% endfor %}
+        </div>
     </div>
-</div>
-<script>
-    $(document).ready(function(){
-        $('.slider').bxSlider({
-            auto: 'true',
-            mode: 'fade',
-            captions: true
+    <script>
+        $(document).ready(function(){
+            $('.slider').bxSlider({
+                auto: 'true',
+                mode: 'fade',
+                captions: true
+            });
         });
-    });
-</script>
+    </script>
+</div>
