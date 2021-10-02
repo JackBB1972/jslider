@@ -1,3 +1,4 @@
+{# https://bxslider.com/options/ #}
 <div class="module">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
@@ -14,7 +15,7 @@
 
         <div class="slider">
             {% for banner in banners %}
-                <div><img src="{{ banner.image }}"></div>
+                <div><img alt="{{ banner.title }}" title="{{ banner.title }}" src="{{ banner.image }}"></div>
             {% endfor %}
         </div>
     </div>
@@ -22,8 +23,12 @@
         $(document).ready(function(){
             $('.slider').bxSlider({
                 auto: 'true',
-                mode: 'fade',
-                captions: true
+                mode: '{{ slmode }}',
+                captions: 'true',
+                speed: {{ valueR }},
+                pager: {{ navi }},
+                controls: {{ navi }},
+                captions: {{ capt }}
             });
         });
     </script>

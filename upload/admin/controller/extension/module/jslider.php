@@ -109,6 +109,40 @@ class ControllerExtensionModuleJslider extends Controller
         }
         $data['hclass'] = htmlspecialchars($data['hclass']);
 
+    /* begin of slider variables */
+        if (isset($this->request->post['slmode'])) {
+            $data['slmode'] = $this->request->post['slmode'];
+        } elseif (!empty($module_info)) {
+            $data['slmode'] = $module_info['slmode'];
+        } else {
+            $data['slmode'] = '';
+        }
+
+        if (isset($this->request->post['valueR'])) {
+            $data['valueR'] = $this->request->post['valueR'];
+        } elseif (!empty($module_info)) {
+            $data['valueR'] = $module_info['valueR'];
+        } else {
+            $data['valueR'] = '';
+        }
+
+        if (isset($this->request->post['navi'])) {
+            $data['navi'] = $this->request->post['navi'];
+        } elseif (!empty($module_info)) {
+            $data['navi'] = $module_info['navi'];
+        } else {
+            $data['navi'] = '';
+        }
+
+        if (isset($this->request->post['capt'])) {
+            $data['capt'] = $this->request->post['capt'];
+        } elseif (!empty($module_info)) {
+            $data['capt'] = $module_info['capt'];
+        } else {
+            $data['capt'] = '';
+        }
+    /* end of slider variables*/
+
         if (isset($this->request->post['status'])) {
             $data['status'] = $this->request->post['status'];
         } elseif (!empty($module_info)) {

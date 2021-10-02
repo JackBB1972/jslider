@@ -33,6 +33,34 @@ class ControllerExtensionModuleJslider extends Controller {
         $data['hclass'] = $setting['hclass'];
         $data['name'] = $setting['name'];
 
+        switch ($setting['slmode']) {
+            case '2':
+                $data['slmode'] = 'horizontal';
+                break;
+            case '1':
+                $data['slmode'] = 'vertical';
+                break;
+            case '0':
+                $data['slmode'] = 'fade';
+                break;
+            default:
+                $data['slmode'] = 'fade';
+        }
+
+        $data['valueR'] = $setting['valueR'];
+
+        if(isset($setting['navi']) && $setting['navi'] == '1') {
+            $data['navi'] = 'true';
+        } else {
+            $data['navi'] = 'false';
+        }
+
+        if(isset($setting['capt']) && $setting['capt'] == '1') {
+            $data['capt'] = 'true';
+        } else {
+            $data['capt'] = 'false';
+        }
+
         $data['module'] = $module++;
 
         $conf = $this->config->get('module_jslider');

@@ -1,5 +1,34 @@
 {{ header }}{{ column_left }}
 <div id="content">
+    <style>
+        .mysliderR {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+        .mysliderR::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #0415aa;
+            cursor: pointer;
+        }
+        .mysliderR::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #0415aa;
+            cursor: pointer;
+        }
+    </style>
     <div class="page-header">
         <div class="container-fluid">
             <div class="pull-right">
@@ -45,7 +74,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group">    {# switch for displaying name of module in front #}
                         <label class="col-sm-2 control-label" for="input-display-title">{{ entry_display_title }}</label>
                         <div class="col-sm-10">
                             <select name="display_title" id="input-display-title" class="form-control">
@@ -60,7 +89,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group">    {# addong <span> into <h3> on/off #}
                         <label class="col-sm-2 control-label" for="input-display-title">{{ entry_addspan }}</label>
                         <div class="col-sm-10">
                             <select name="add_span" id="input-add-span" class="form-control">
@@ -75,7 +104,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group">    {# css class of <h3> #}
                         <label class="col-sm-2 control-label" for="input-hclass">{{ entry_header_class }}</label>
                         <div class="col-sm-10">
                             <input type="text" name="hclass" value="{{ hclass }}" placeholder="{{ entry_header_class }}"
@@ -85,6 +114,86 @@
                             {% endif %}
                         </div>
                     </div>
+
+                {# settings of slider :: begin #}
+                    <hr style="width:35%; color:blue;">
+                    <h4>{{ text_settings }}</h4>
+
+                    {# mode of showing: vertical, horizontal or fade(default) #}
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-slmode">{{ entry_mode }}</label>
+                        <div class="col-sm-10">
+                            <select name="slmode" id="input-slmode" class="form-control">
+                                {% if slmode == '2' %}
+                                    <option value="2" selected="selected">{{ text_modeVertcal }}</option>
+                                    <option value="1">{{ text_modeHorizontalOff }}</option>
+                                    <option value="0">{{ text_modeFadeOff }}</option>
+                                {% elseif slmode == '1' %}
+                                    <option value="2">{{ text_modeVertcalOff }}</option>
+                                    <option value="1" selected="selected">{{ text_modeHorizontal }}</option>
+                                    <option value="0">{{ text_modeFadeOff }}</option>
+                                {% else %}
+                                    <option value="2">{{ text_modeVertcalOff }}</option>
+                                    <option value="1">{{ text_modeHorizontalOff }}</option>
+                                    <option value="0" selected="selected">{{ text_modeFade }}</option>
+                                {% endif %}
+                            </select>
+                        </div>
+                    </div>
+
+                    {# speed of the slider #}
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-status">{{ entry_speed }}</label>
+                        <div class="col-sm-10">
+                            <div class="rangeslider col-sm-7">
+                                <input name="valueR"
+                                       type="range"
+                                       for="input-valueR"
+                                       min="100" max="2000" step="100"
+                                       value="{% if valueR %}{{ valueR }}{% else %}500{% endif %}"
+                                       class="mysliderR"
+                                       id="sliderRange">
+                            </div>
+                            <div class="col-sm-3">
+                                <h5 style="color:green">{{ text_valueR }}: <span id="valueOfSlider"></span></h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    {# nav & toolbar #}
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-navi">{{ entry_navi }}</label>
+                        <div class="col-sm-10">
+                            <select name="navi" id="input-navi" class="form-control">
+                                {% if navi %}
+                                    <option value="1" selected="selected">{{ text_enabled }}</option>
+                                    <option value="0">{{ text_disabled }}</option>
+                                {% else %}
+                                    <option value="1">{{ text_enabled }}</option>
+                                    <option value="0" selected="selected">{{ text_disabled }}</option>
+                                {% endif %}
+                            </select>
+                        </div>
+                    </div>
+
+                    {# displaying captions on/off #}
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-capt">{{ entry_capt }}</label>
+                        <div class="col-sm-10">
+                            <select name="capt" id="input-capt" class="form-control">
+                                {% if capt %}
+                                    <option value="1" selected="selected">{{ text_enabled }}</option>
+                                    <option value="0">{{ text_disabled }}</option>
+                                {% else %}
+                                    <option value="1">{{ text_enabled }}</option>
+                                    <option value="0" selected="selected">{{ text_disabled }}</option>
+                                {% endif %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <hr style="width:35%; color:blue;">
+                {# settings of slider :: end #}
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
@@ -120,6 +229,14 @@
             </div>
         </div>
     </div>
+    <script>
+        var rangeslider = document.getElementById("sliderRange");
+        var output = document.getElementById("valueOfSlider");
+        output.innerHTML = rangeslider.value;
 
+        rangeslider.oninput = function() {
+            output.innerHTML = this.value;
+        }
+    </script>
 </div>
 <?php echo $footer; ?>
