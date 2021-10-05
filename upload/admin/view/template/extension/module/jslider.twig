@@ -12,6 +12,7 @@
             -webkit-transition: .2s;
             transition: opacity .2s;
         }
+
         .mysliderR::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
@@ -21,6 +22,7 @@
             background: #0415aa;
             cursor: pointer;
         }
+
         .mysliderR::-moz-range-thumb {
             width: 25px;
             height: 25px;
@@ -90,7 +92,7 @@
                     </div>
 
                     <div class="form-group">    {# addong <span> into <h3> on/off #}
-                        <label class="col-sm-2 control-label" for="input-display-title">{{ entry_addspan }}</label>
+                        <label class="col-sm-2 control-label" for="input-add-span">{{ entry_addspan }}</label>
                         <div class="col-sm-10">
                             <select name="add_span" id="input-add-span" class="form-control">
                                 {% if add_span %}
@@ -115,7 +117,7 @@
                         </div>
                     </div>
 
-                {# settings of slider :: begin #}
+                    {# settings of slider :: begin #}
                     <hr style="width:35%; color:blue;">
                     <h4>{{ text_settings }}</h4>
 
@@ -143,12 +145,11 @@
 
                     {# speed of the slider #}
                     <div class="form-group">
-                        <label class="col-sm-2 control-label" for="input-status">{{ entry_speed }}</label>
+                        <label class="col-sm-2 control-label" for="sliderRange">{{ entry_speed }}</label>
                         <div class="col-sm-10">
                             <div class="rangeslider col-sm-7">
                                 <input name="valueR"
                                        type="range"
-                                       for="input-valueR"
                                        min="100" max="2000" step="100"
                                        value="{% if valueR %}{{ valueR }}{% else %}500{% endif %}"
                                        class="mysliderR"
@@ -193,7 +194,7 @@
                     </div>
 
                     <hr style="width:35%; color:blue;">
-                {# settings of slider :: end #}
+                    {# settings of slider :: end #}
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
@@ -216,7 +217,8 @@
                             <select name="banner_id" id="input-banner" class="form-control">
                                 {% for banner in banners %}
                                     {% if banner.banner_id == banner_id %}
-                                        <option value="{{ banner.banner_id }}" selected="selected">{{ banner.name }}</option>
+                                        <option value="{{ banner.banner_id }}"
+                                                selected="selected">{{ banner.name }}</option>
                                     {% else %}
                                         <option value="{{ banner.banner_id }}">{{ banner.name }}</option>
                                     {% endif %}
@@ -234,7 +236,7 @@
         var output = document.getElementById("valueOfSlider");
         output.innerHTML = rangeslider.value;
 
-        rangeslider.oninput = function() {
+        rangeslider.oninput = function () {
             output.innerHTML = this.value;
         }
     </script>

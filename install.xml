@@ -2,12 +2,7 @@
 <modification>
     <name>JSlider</name>
     <code>jslider#2153216</code>
-    <version>0.12.3 # 02-10-2021</version>
+    <version>1.00.b</version>
     <author>JackBB</author>
     <link>htech.by@gmail.com</link>
 </modification>
-<!--
-TODO: подключение стилей
-TODO: https://bxslider.com/options/
-TODO    шрифт в капшонах
--->

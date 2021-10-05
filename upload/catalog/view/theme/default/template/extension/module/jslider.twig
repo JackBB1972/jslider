@@ -1,4 +1,8 @@
-{# https://bxslider.com/options/ #}
+{#
+    https://bxslider.com/options/
+    TODO    add switch - load *.js & *.css from CDN or from local storage
+    TODO    separate navigation & thumbs
+#}
 <div class="module">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
@@ -24,7 +28,6 @@
             $('.slider').bxSlider({
                 auto: 'true',
                 mode: '{{ slmode }}',
-                captions: 'true',
                 speed: {{ valueR }},
                 pager: {{ navi }},
                 controls: {{ navi }},
