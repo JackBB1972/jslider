@@ -24,8 +24,8 @@ TODO    separate navigation & thumbs
                                 title="{{ banner.title }}"
                                 src="{{ banner.image }}"
                                 loading="lazy"
-                                width="auto"
-                                height="auto"
+                                width="{{ iwidth }}"
+                                height="auto"   {# TODO script can't confirm aspect ratio #}
                                 /></div>
             {% endfor %}
         </div>

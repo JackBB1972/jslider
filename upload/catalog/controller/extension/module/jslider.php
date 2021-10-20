@@ -34,6 +34,8 @@ class ControllerExtensionModuleJslider extends Controller {
         $data['add_span'] = $setting['add_span'];
         $data['hclass'] = $setting['hclass'];
         $data['name'] = $setting['name'];
+        $data['iwidth'] = "1400";    //  TODO    add free width & height of image
+        $data['iheight'] = "700";
 
         switch ($setting['slmode']) {
             case '2':
