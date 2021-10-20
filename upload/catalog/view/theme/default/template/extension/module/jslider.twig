@@ -1,7 +1,7 @@
 {#
-    https://bxslider.com/options/
-    TODO    add switch - load *.js & *.css from CDN or from local storage
-    TODO    separate navigation & thumbs
+https://bxslider.com/options/
+TODO    add switch - load *.js & *.css from CDN or from local storage
+TODO    separate navigation & thumbs
 #}
 <div class="module">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
@@ -19,12 +19,19 @@
 
         <div class="slider">
             {% for banner in banners %}
-                <div><img alt="{{ banner.title }}" title="{{ banner.title }}" src="{{ banner.image }}"></div>
+                <div><img
+                                alt="{{ banner.title }}"
+                                title="{{ banner.title }}"
+                                src="{{ banner.image }}"
+                                loading="lazy"
+                                width="auto"
+                                height="auto"
+                                /></div>
             {% endfor %}
         </div>
     </div>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             $('.slider').bxSlider({
                 auto: 'true',
                 mode: '{{ slmode }}',
